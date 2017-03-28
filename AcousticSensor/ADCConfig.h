@@ -59,6 +59,7 @@
  
 #define WINDOW_COUNT 8          // How many signal windows to keep track of
 #define MIN_WINDOW_COUNT 24     // How many signal windows to ignore on start up before enabling triggering
+#define TRIGGER_DEFAULT_STD_DISTANCE   20.0f  // default std distance from mean to consider an event
 
 /*
  * Do not modify the following parameters

@@ -31,6 +31,7 @@ The firmware for the acoustic sensor can easily configured in `ADCConfig.h`. The
 * **Triggering Parameters:**
   * `WINDOW_COUNT` - the number of buffer statistics to keep around for statistically analysis
   * `MIN_WINDOW_COUNT` - the minimum number of windows to collect before triggering
+  * `TRIGGER_DEFAULT_STD_DISTANCE` - the minimum std distance from the mean to detect outliers in the signal
 
 ## Post-Processing Scripts
 

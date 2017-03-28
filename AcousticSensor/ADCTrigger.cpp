@@ -7,6 +7,7 @@ ADCTrigger::ADCTrigger(){
   _windowCount = 0;
   _currentIndex = 0;
   _triggerCount = 0;
+  _stdDistance = TRIGGER_DEFAULT_STD_DISTANCE;
 }
 
 void ADCTrigger::feed(uint16_t *buffer, uint16_t len){
@@ -19,7 +20,7 @@ void ADCTrigger::feed(uint16_t *buffer, uint16_t len){
   
   float winEnergy = updateMeanAndEnergy(buffer, len);
   
-  if(winEnergy > (meanEnergy + 20*stdEnergy)){
+  if(winEnergy > (meanEnergy + _stdDistance*stdEnergy)){
     if(_triggerCount >= 1){
       _isTriggered = true;
     } else {
@@ -28,6 +29,10 @@ void ADCTrigger::feed(uint16_t *buffer, uint16_t len){
       _triggerCount++; 
     }
   }
+}
+
+void ADCTrigger::setStdDistance(float stdDistance){
+  _stdDistance = stdDistance;
 }
 
 bool ADCTrigger::isTriggered(){
