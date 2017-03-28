@@ -31,3 +31,7 @@ The firmware for the acoustic sensor can easily configured in `ADCConfig.h`. The
 * **Triggering Parameters:**
   * `WINDOW_COUNT` - the number of buffer statistics to keep around for statistically analysis
   * `MIN_WINDOW_COUNT` - the minimum number of windows to collect before triggering
+
+## Post-Processing Scripts
+
+Some Matlab scripts to post-process captured data in the `scripts/matlab` sub-directory. These scripts will be updated over time.
