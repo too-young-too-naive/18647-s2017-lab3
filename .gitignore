@@ -1,3 +1,4 @@
 .DS_Store
 *.h.gch
 scripts/matlab/data
+**/*.m~
