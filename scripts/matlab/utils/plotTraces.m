@@ -10,12 +10,13 @@ startTimes = zeros(N,1);
 for i = 1:N
    startTimes(i) = traces{i}.Timestamp;
 end
-startTimes = startTimes - min(startTimes);
+% startTimes = startTimes - min(startTimes);
 
 % keep track of trace names
 legends = cell(N,1);    
 
 % generate x and y vectors for each trace
+figure;
 for i = 1:N
     legends{i} = traces{i}.DeviceID;
     
