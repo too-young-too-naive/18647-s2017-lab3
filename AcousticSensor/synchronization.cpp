@@ -111,7 +111,7 @@ void vNtpSlaveReceiveTask(void *arg){
     t2 = *((tstamp_t*)&recvBuffer[TIMESTAMP_SIZE*2]);;
     
     int offset = ((t1-t0) + (t2-t3))/2;
-    int delay = ((t3-t0) + (t2-t1))/2;
+    int delay = ((t3-t0) - (t2-t1))/2;
     
     PRINT_DEBUG("Offset: ");
     PRINT_DEBUG(offset);
