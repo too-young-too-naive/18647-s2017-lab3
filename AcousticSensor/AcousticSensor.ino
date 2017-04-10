@@ -221,6 +221,7 @@ void onReady(){
   // initialize tasks
   PRINT_DEBUGLN("Device Ready!");
   PRINT_DEBUG("Device IP: ");
+  SerialUSB.println(IPAddress(PowerDueWiFi.getDeviceIP()));
   PRINT_DEBUGLN(IPAddress(PowerDueWiFi.getDeviceIP()));
   
   startTasks();

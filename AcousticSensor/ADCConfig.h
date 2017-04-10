@@ -6,8 +6,8 @@
 /*
  * Device Parameters
  */
-
-#define DEVICE_ID "PDue0000"    // use this to uniquely identify your device (max of 8 characters)
+//Board#6 is master board, ip address is 10.230.12.4
+#define DEVICE_ID "PDue0015"    // use this to uniquely identify your device (max of 8 characters)
 
 /*
  * Application Parameters
@@ -16,7 +16,7 @@
 // TODO: Update these values to the proper network / server IP
 #define WIFI_SSID "PowerDue"
 #define WIFI_PASS "powerdue"
-#define SERVER_IP "10.230.12.1"  // typically the IP of your Laptop (e.g. "10.230.12.1")
+#define SERVER_IP "172.29.94.61"  // typically the IP of your Laptop (e.g. "10.230.12.1")
 
 /*
  * Clock parameters
@@ -25,7 +25,7 @@
 // This defines whether this device is the master clock or not
 // 0 - this is a slave clock (see below for extra parameters)
 // 1 - this is the master clock
-#define MASTER_CLOCK 1
+#define MASTER_CLOCK 0
 
 // The udp port to use for synchronization
 #define SYNC_PORT 12345         // no need to modify. must be consistent across all devices
@@ -33,7 +33,7 @@
 #if MASTER_CLOCK == 0
   // TODO: If this is a slave clock, this must be defined properly
   // Set this to the IP Address of your Master Clock
-  #define MASTER_CLOCK_IP ""    // e.g. "10.230.12.10"
+  #define MASTER_CLOCK_IP "10.230.12.4"    // e.g. "10.230.12.10"
 #endif
 
 #define SYNC_FREQUENCY  10000   // Time period between NTP synchronization trials (in milliseconds)
@@ -45,7 +45,7 @@
  */
  
 // TODO: Modify the parameters below to suit your application needs
-#define ADC_SAMPLE_RATE 1000    // Sampling Rate in Hz of the ADC Sampler
+#define ADC_SAMPLE_RATE 10000    // Sampling Rate in Hz of the ADC Sampler
 
 #define NUM_BUFFERS   8         // How many buffers should the ADC Sampler keep track of?
 
