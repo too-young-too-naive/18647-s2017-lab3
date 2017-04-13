@@ -112,6 +112,16 @@ void vNtpSlaveReceiveTask(void *arg){
     
     int offset = ((t1-t0) + (t2-t3))/2;
     int delay = ((t3-t0) - (t2-t1))/2;
+
+        PRINT_DEBUG("t0: ");
+    PRINT_DEBUG((uint32_t)t0);
+    PRINT_DEBUG(" t1: ");
+    PRINT_DEBUGLN((uint32_t)t1);
+        PRINT_DEBUG(" t2: ");
+    PRINT_DEBUGLN((uint32_t)t2);
+        PRINT_DEBUG(" t3: ");
+    PRINT_DEBUGLN((uint32_t)t3);
+
     
     PRINT_DEBUG("Offset: ");
     PRINT_DEBUG(offset);
@@ -121,6 +131,9 @@ void vNtpSlaveReceiveTask(void *arg){
     // adjust the clock based on computed offset an delay
     // TODO: how do we choose when to adjust our clock?
     ADCClock.addOffset(offset, delay);
+//    int _offset = ADCClock.getOffset();
+//    int _delay = getNetworkDelay();
+//    t0 += _offset;
   }
 }
 
@@ -152,9 +165,13 @@ void vNtpMasterReceiveTask(void *arg){
     PRINT_DEBUG((uint32_t)t0);
     PRINT_DEBUG(" t1: ");
     PRINT_DEBUGLN((uint32_t)t1);
+
+
     
     // get t2
     t2 = ADCClock.getTime();
+        PRINT_DEBUG(" t2: ");
+    PRINT_DEBUGLN((uint32_t)t2);
     
     // place it in the packet
     memcpy((&respBuffer[TIMESTAMP_SIZE*2]), (uint8_t*)(&t2), TIMESTAMP_SIZE);
