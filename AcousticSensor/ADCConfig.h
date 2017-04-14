@@ -9,7 +9,7 @@
  
 //Board#15 is master board , ip address is 10.230.12.27
 //Board#6 is master board, ip address is 10.230.12.4
-#define DEVICE_ID "PDue00slave"    // use this to uniquely identify your device (max of 8 characters)
+#define DEVICE_ID "powerdue11"    // use this to uniquely identify your device (max of 8 characters)
 
 /*
  * Application Parameters
@@ -47,11 +47,11 @@
  */
  
 // TODO: Modify the parameters below to suit your application needs
-#define ADC_SAMPLE_RATE 1000    // Sampling Rate in Hz of the ADC Sampler
+#define ADC_SAMPLE_RATE 10000    // Sampling Rate in Hz of the ADC Sampler
 
 #define NUM_BUFFERS   8         // How many buffers should the ADC Sampler keep track of?
 
-#define BUFFER_SIZE   256       // How many samples per buffer should the DMA fill up
+#define BUFFER_SIZE   512       // How many samples per buffer should the DMA fill up
 
 #define BUFFERS_TO_SEND 4       // How many buffers to send to the visualizer
 
