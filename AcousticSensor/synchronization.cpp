@@ -10,6 +10,8 @@
 void initNtpServerAddr();
 int getNtpSocket();
 
+int firstSyn = 1;
+
 #if MASTER_CLOCK
   void vNtpMasterReceiveTask(void *arg);
 #else
@@ -113,13 +115,13 @@ void vNtpSlaveReceiveTask(void *arg){
     int offset = ((t1-t0) + (t2-t3))/2;
     int delay = ((t3-t0) - (t2-t1))/2;
 
-        PRINT_DEBUG("t0: ");
+    PRINT_DEBUG("t0: ");
     PRINT_DEBUG((uint32_t)t0);
     PRINT_DEBUG(" t1: ");
     PRINT_DEBUGLN((uint32_t)t1);
-        PRINT_DEBUG(" t2: ");
+    PRINT_DEBUG(" t2: ");
     PRINT_DEBUGLN((uint32_t)t2);
-        PRINT_DEBUG(" t3: ");
+    PRINT_DEBUG(" t3: ");
     PRINT_DEBUGLN((uint32_t)t3);
 
     
@@ -130,7 +132,12 @@ void vNtpSlaveReceiveTask(void *arg){
     
     // adjust the clock based on computed offset an delay
     // TODO: how do we choose when to adjust our clock?
+    
+//    if( (delay >= -10 && delay <= 10) || firstSyn == 1) {
     ADCClock.addOffset(offset, delay);
+//    firstSyn = 0;
+      
+//    }
 //    int _offset = ADCClock.getOffset();
 //    int _delay = getNetworkDelay();
 //    t0 += _offset;

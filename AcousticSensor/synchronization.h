@@ -4,7 +4,7 @@
 #include "ADCConfig.h"
 
 #ifndef MASTER_CLOCK
-  #define MASTER_CLOCK 0
+  #define MASTER_CLOCK 1
 #endif
 
 #define TIMESTAMP_SIZE    (sizeof(tstamp_t))

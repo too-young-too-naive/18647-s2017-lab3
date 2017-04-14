@@ -19,6 +19,8 @@ QueueHandle_t xBufferQueue;
 QueueHandle_t xTcpQueue;
 ADCTrigger trigger;
 
+int ticks = 0;
+
 // store the timestamps for each buffer to report later
 tstamp_t tstamps[NUM_BUFFERS];
 
@@ -80,7 +82,15 @@ void adc_full(uint8_t index, uint16_t *readyBuffer, uint16_t size){
   tstamps[index] = ADCClock.getTime();
   
   // if even, toggle low... if odd, toggle high
-  togglePin(ADCClock.getMajorTicks()%2);
+  //ticks += 1;
+  ticks = ADCClock.getMajorTicks();
+  if (ticks % 20 == 1) {
+    togglePin(0);
+  }
+  else if (ticks % 20 == 2) {
+    togglePin(1);
+  }
+  //togglePin(ADCClock.getMajorTicks()%2);
   
   // send buffer index for processing
   xQueueSendToBackFromISR(xBufferQueue, &index, NULL);
