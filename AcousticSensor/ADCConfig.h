@@ -8,7 +8,7 @@
  */
 //Board#15 is master board , ip address is 10.230.12.27
 //Board#6 is master board, ip address is 10.230.12.4
-#define DEVICE_ID "PDue0001"    // use this to uniquely identify your device (max of 8 characters)
+#define DEVICE_ID "PDue0011"    // use this to uniquely identify your device (max of 8 characters)
 
 /*
  * Application Parameters
