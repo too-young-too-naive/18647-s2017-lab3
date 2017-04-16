@@ -51,7 +51,7 @@
 
 #define NUM_BUFFERS   8         // How many buffers should the ADC Sampler keep track of?
 
-#define BUFFER_SIZE   512       // How many samples per buffer should the DMA fill up
+#define BUFFER_SIZE   256       // How many samples per buffer should the DMA fill up
 
 #define BUFFERS_TO_SEND 4       // How many buffers to send to the visualizer
 
